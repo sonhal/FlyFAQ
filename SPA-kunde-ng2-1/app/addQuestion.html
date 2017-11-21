@@ -1,0 +1,25 @@
+﻿<div class="col-sm-12 col-lg-6" *ngIf="showForm">
+    <form [formGroup]="questionForm" (ngSubmit)="submitForm()">
+        <input class="form-control" formControlName="id" type="hidden" />
+        <div class="form-group">
+            <label>Spørsmål</label>
+            <textarea class="form-control" rows="5" formControlName="body"></textarea>
+            <p class="alert alert-warning" [hidden]="questionForm.controls.body.valid || (questionForm.controls.body.pristine && !submitted)">
+               Spørsmål tekst er obligatorisk.
+            </p>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" formControlName="email" />
+            <p class="alert alert-warning" [hidden]="questionForm.controls.email.valid || (questionForm.controls.email.pristine && !submitted)">
+                Email er obligatorisk.
+            </p>
+        </div>
+        
+        <div class="form-group">
+            <button type="submit"  [disabled]="!questionForm.valid"  class="btn btn-primary">Registrer</button>
+        </div>
+    </form>
+</div>
+
+<p>{{test}}</p>

@@ -1,0 +1,23 @@
+﻿<div class="container bg-primary">
+    <br />
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav">
+                    <li><button class="btn btn-default navbar-btn" (click)="showCustomerQuestions()">{{buttonText}}</button></li>
+                    <li><button class="btn btn-default navbar-btn" (click)="showNewQuestionForm()">{{formButtonText}}</button></li>
+                </ul>
+                <div class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="søk etter spørsmål" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="row"><add-question></add-question></div>
+    <div class="row"><show-customer-questions [searchText]="searchText"></show-customer-questions></div>
+    <div class="row"><show-questions [searchText]="searchText"></show-questions></div>
+</div>

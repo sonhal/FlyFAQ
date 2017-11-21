@@ -1,0 +1,25 @@
+﻿<div class="col-sm-12" *ngIf="!hideQuestions"> 
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default" *ngFor="let q of allQuestions | filter : searchText">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{q.id}}">
+                       {{q.body}}
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse{{q.id}}" class="panel-collapse collapse out">
+                <div class="panel-body">
+                    <div class="card col-sm-12" >
+                         <div class="card-block">
+                            <p class="card-text" style="color:black;" *ngIf="q.answer">{{q.answer.body}}</p>
+                            <p class="card-text" style="color:red;" *ngIf="!q.answer">Spørsmålet har ikke blitt svart enda</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
